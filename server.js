@@ -127,13 +127,33 @@ app.post('/code',function(req,res)
     var lang = req.body.language;
     var code = req.body.code;
     var input = req.body.input;
+    var userid = req.body.UserID;
     var timelimit = 1;
     //console.log("lang:"+lang+"code:"+code+"input:"+input);
     
-    var object = lang+"~"+code+"~"+input+"~"+timelimit;
-    console.log(object);
+    //var object = lang+"~"+code+"~"+input+"~"+timelimit;
+    //console.log(object);
     
-    //TCP CODE
+     
+        
+        
+        
+       var codedocument = {ProgramCode:code,Language:lang,input:input,UserID:userid};
+    
+    MongoClient.connect('mongodb://127.0.0.1:27017/codecompiler', function(err, db) {
+  if (err) throw err;
+  console.log("Connected to Database");
+  
+	//insert record
+	db.collection('submission_master').insert(codedocument, function(err, docsInserted) {
+		if (err) throw err;
+        //res.jsonp(records);
+        var CodeobjectId = codedocument._id;
+            
+          console.log("Record added Successfully Object ID :-" + codedocument);
+        
+          var object = lang+"~"+CodeobjectId+"~"+input+"~"+timelimit;
+            //TCP CODE
 var client = new net.Socket();
 client.connect(PORT, HOST, function() {
 
@@ -160,6 +180,13 @@ client.on('close', function() {
 });
     
     //res.end("Success");
+		
+	});
+    
+});
+    
+    
+
     
 })
 
@@ -167,4 +194,4 @@ client.on('close', function() {
 
 app.listen(9000);
 console.log("Server Started");
-console.log(__dirname);
+//console.log(__dirname);

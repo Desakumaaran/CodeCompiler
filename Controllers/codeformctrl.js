@@ -19,7 +19,8 @@ app.controller('codeformctrl',['$scope','$routeParams','$route', '$http','$sessi
         var data = {
             "language": $scope.language,
             "code": myCodeMirror.getValue(),
-            "input": $scope.inputs
+            "input": $scope.inputs,
+            "UserID": $scope.UserID
         }
         $http.post('/code',data).
             success(function (data) {
