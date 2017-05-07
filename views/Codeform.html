@@ -1,0 +1,113 @@
+<div ng-controller="codeformctrl">
+<h2>Welcome {{UserName}}!</h2>
+<h2>Code And Compile Here...!</h2>
+<form>
+<div class="form-group">
+  <label for="sel1">Select list:</label>
+  <select class="form-control" id="lang" ng-model="language">
+    <option>C</option>
+    <option>C++</option>
+    <option>C#</option>
+    <option>Java</option>
+    <option>JavaScript</option>
+  </select>
+</div>
+      <div class="form-group">
+      <textarea id="sub" name="sub">
+</textarea>
+      </div>
+      <div class="form-group">
+      <input id="inputs" ng-model="inputs" class="form-control" name="inputs" >
+      </div>
+      <div class="form-group" ng-show="showout">
+      <input id="output" ng-model="output" class="form-control" name="output" >
+      </div>
+    
+    <button type="submit" ng-click="RunCode()" class="btn btn-default">Submit</button>
+</form>
+</div>
+<script type="text/javascript">
+    
+    
+    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('sub'), {
+        //theme: '3024-day',
+        lineWrapping: true,
+        lineNumbers: true,
+        matchBrackets: true,
+        autoCloseBrackets: true,
+		autoComplete: true,
+        indentWithTabs: true,
+        smartIndent: true,
+        tabSize: 2,
+        autofocus: true,
+        styleActiveLine: true,
+        viewportMargin: Infinity,
+        mode: 'text/x-csrc',
+        extraKeys: {
+            "Ctrl-Space": "autocomplete",
+            "F11": function (cm) {
+                cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+            },
+            "Esc": function (cm) {
+                if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+            }
+        }
+    });
+    //Set laungauge mode
+    var cmmode = {
+        'C': 'text/x-csrc',
+        'C++': 'text/x-c++src',
+        'C#': 'text/x-csharp',
+        'Java': 'text/x-java',
+        'JavaScript': 'javascript',
+        'Pascal': 'text/x-pascal',
+        'Perl': 'text/x-perl',
+        'PHP': 'text/x-php',
+        'Python': 'text/x-python',
+        'Python3': 'text/x-python',
+        'Ruby': 'text/x-ruby',
+        'htmlmixed': 'htmlmixed'
+    };
+    $('#lang').change(function () {
+        debugger;
+        myCodeMirror.setOption('mode', cmmode[$('#lang').val()]);
+    });
+
+    //CodeMirror Comment and UnComment
+    CodeMirror.commands["selectAll"](myCodeMirror);
+
+    function getSelectedRange() {
+        return { from: myCodeMirror.getCursor(true), to: myCodeMirror.getCursor(false) };
+    }
+
+    function autoFormatSelection() {
+        var range = getSelectedRange();
+        myCodeMirror.autoFormatRange(range.from, range.to);
+    }
+
+    function commentSelection(isComment) {
+        var range = getSelectedRange();
+        myCodeMirror.commentRange(isComment, range.from, range.to);
+    }
+    function resetEditor(isReset) {
+        myCodeMirror.cm.setValue("");
+        myCodeMirror.cm.clearHistory(isReset);
+        // cm.clearGutter("gutterId"); if you have gutters
+    }
+    //CodeMirror Reset
+    function ResetCode() {
+        myCodeMirror.setValue("");
+    }
+    //CodeMirror button click FullScreen and escape actions
+    var e = $.Event("keypress", { keyCode: 122 });
+    $('#btnclick').click(function () {
+        var result = e.keyCode;
+        $(".CodeMirror").addClass("CodeMirror-focused CodeMirror-fullscreen").trigger(e);
+    });
+
+    $(document).keyup(function (e) {
+        if (e.keyCode == 27) {
+            $(".CodeMirror").removeClass("CodeMirror-fullscreen");
+        }
+    });
+</script>

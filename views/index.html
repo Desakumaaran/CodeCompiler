@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/css/footer-distributed.css">
+    <script src="https://use.fontawesome.com/31043bdd74.js"></script>
+     <link rel="stylesheet" href="../libs/css/custom.css">
+    <link rel="stylesheet" href="../libs/css/logo-nav.css">
+    <link rel="stylesheet" href="../libs/css/style.css">
+  <script src="../libs/js/jquery.min.js"></script>
+  <script src="../libs/js/bootstrap.min.js"></script>
+    
+    
+<!--CodeMirror-->
+    <script src="../libs/js/angular.min.js"></script>
+    <script src="../libs/js/angular-route.js"></script>
+    <script src="../libs/js/ngStorage.js"></script>
+    <script src="../Controllers/route.js"></script>
+    <script src="../Controllers/homectrl.js"></script>
+    <script src="../Controllers/codeformctrl.js"></script>
+    
+    
+<!--CodeMirror-->
+    <link rel="stylesheet" href="../libs/codemirror/lib/codemirror.css">
+<!--CodeMirror CSS-->
+    <link href="../libs/codemirror/lib/codemirror.css" rel="stylesheet" />
+    <link href="../libs/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+    <link href="../libs/codemirror/addon/display/fullscreen.css" rel="stylesheet" />
+    <link href="../libs/codemirror/theme/3024-day.css" rel="stylesheet" />
+    
+<!--CodeMirror JS-->
+    <script src="../libs/codemirror/lib/codemirror.js"></script>
+    <script src="../libs/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../libs/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="../libs/codemirror/mode/xml/xml.js"></script>
+    <script src="../libs/codemirror/mode/css/css.js"></script>
+    <script src="../libs/codemirror/mode/sql/sql.js"></script>
+    <script src="../libs/codemirror/mode/clike/clike.js"></script>
+    <script src="../libs/codemirror/mode/pascal/pascal.js"></script>
+    <script src="../libs/codemirror/mode/perl/perl.js"></script>
+    <script src="../libs/codemirror/mode/php/php.js"></script>
+    <script src="../libs/codemirror/mode/python/python.js"></script>
+    <script src="../libs/codemirror/mode/ruby/ruby.js"></script>
+    <script src="../libs/codemirror/mode/markdown/markdown.js"></script>
+    <script src="../libs/codemirror/addon/selection/active-line.js"></script>
+    <script src="../libs/codemirror/addon/util/formatting.js"></script>
+    <script src="../libs/codemirror/addon/display/fullscreen.js"></script>
+    <script src="../libs/codemirror/addon/runmode/runmode.js"></script>
+    <script src="../libs/codemirror/addon/hint/show-hint.js"></script>
+    <script src="../libs/codemirror/addon/hint/html-hint.js"></script>
+    <script src="../libs/codemirror/addon/hint/javascript-hint.js"></script>
+    <script src="../libs/codemirror/addon/hint/sql-hint.js"></script>
+    <script src="../libs/codemirror/addon/display/placeholder.js"></script>
+    <script src="../libs/codemirror/addon/edit/closebrackets.js"></script>
+    <script src="../libs/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="../libs/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../libs/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="../libs/codemirror/mode/xml/xml.js"></script>
+    <script src="../libs/codemirror/mode/css/css.js"></script>
+    <script src="../libs/codemirror/mode/sql/sql.js"></script>
+    <script src="../libs/codemirror/mode/php/php.js"></script>
+<style>
+/*
+body {
+    background-image: url("images/banner.png");
+    background-color: #cccccc;
+	
+}
+*/
+</style>
+    
+    
+    
+</head>
+<body ng-app="NodeApp">
+ <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/">About</a>
+                    </li>
+                    <li>
+                        <a href="#codeform">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+	
+        <div class="container" ng-view>
+  
+</div>
+        </div>
+   
+    <!-- /.container -->
+<footer id="footer">
+    <p class="h5 text-muted">Sticky Footer</p>
+</footer>
+
+
+</body>
+</html>

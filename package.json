@@ -1,0 +1,21 @@
+{
+  "name": "nodecompiler",
+  "version": "1.0.0",
+  "description": "online compiler using nodejs supports multiple compiler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DESA",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "http": "0.0.0",
+    "mongodb": "^2.2.25",
+    "net": "^1.0.2",
+    "path": "^0.12.7",
+    "underscore": "^1.8.3",
+    "util": "^0.10.3"
+  }
+}
