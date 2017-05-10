@@ -141,13 +141,18 @@ app.post('/code', function(req, res) {
     //console.log(object);
 
 
-
+    var datetime = new Date();
 
     var codedocument = {
         ProgramCode: code,
         Language: lang,
         input: input,
-        UserID: userid
+        UserID: userid,
+        ExecutionTime:0,
+        Memory:0,
+        SubmittedTime:datetime,
+        ProgramOutput:"",
+        ProgramError:""
     };
 
     MongoClient.connect('mongodb://127.0.0.1:27017/codecompiler', function(err, db) {
